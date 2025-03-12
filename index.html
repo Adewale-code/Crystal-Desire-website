@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+    <div class="logo1">
+        ade
+    </div>
+
+    <!-- 🏷 NAVBAR WITH SHOP & CART -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Crystal logo.jpg" alt="Crystal Logo">
+        </div>
+        <h2>Crystal Desire </h2>
+        <ul class="nav-links">
+           
+            <li class="cart-nav">
+                
+                    🛒 Cart <span id="cart-count"></span>
+                
+            </li>
+        </ul>
+    </nav>
+    <script>
+        window.addEventListener("scroll", function () {
+            let navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+   
+    <style>
+        h2{
+            
+            background: linear-gradient(to right, #ff99cc, #ffccff);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #ff99cc, #ffccff); /* Classic gradient */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background 0.5s ease-in-out;
+        }
+        
+        /* Logo Styling */
+        .logo img {
+            height: 50px; /* Adjust as needed */
+            width: auto;
+            animation: fadeInDown 1s ease-in-out;
+        }
+        
+        /* Navbar Links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .nav-links li a:hover {
+            color: #ffeb3b; /* Smooth hover effect */
+        }
+        
+        /* Classic Live Animation */
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Navbar Scroll Animation */
+        .navbar.scrolled {
+            background: #222;
+            transition: background 0.5s ease-in-out;
+        }
+        
+   </style>
+
+    <!-- 🛍 PRODUCT SECTION -->
+    <div class="products">
+        <h2>Our Products</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="product0.jpg" alt="Product 0">
+                <h3>Quality luxury designer hoodie</h3>
+                <p>₦27,000</p>
+                <button onclick="addToCart('Quality luxury designer hoodie', 27000, 'product0.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Quality luxury designer hoodie</h3>
+                <p>₦27,000</p>
+                <button onclick="addToCart('JeQuality luxury designer hoodie', 27000, 'product1.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Quality baggy jeans</h3>
+                <p>₦20,000</p>
+                <button onclick="addToCart('Quality baggy jeans', 20000, 'product2.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product3.jpg" alt="Product 3">
+                <h3>Quality baggy jeans</h3>
+                <p>₦20,000</p>
+                <button onclick="addToCart('Quality baggy jeans', 20000, 'product3.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product4.jpg" alt="Product 4">
+                <h3>Quality baggy jeans</h3>
+                <p>₦20,000</p>
+                <button onclick="addToCart('Quality baggy jeans', 20000, 'product4.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product5.jpg" alt="Product 5">
+                <h3>Quality baggy jeans</h3>
+                <p>₦20,000</p>
+                <button onclick="addToCart('Quality baggy jeans', 20000, 'product5.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product6.jpg" alt="Product 6">
+                <h3>Quality luxury 2pcs</h3>
+                <p>₦30,000</p>
+                <button onclick="addToCart('Quality luxury 2pcs', 30000, 'product6.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product7.jpg" alt="Product 7">
+                <h3>Quality luxury 2pcs</h3>
+                <p>₦30,000</p>
+                <button onclick="addToCart('Quality luxury 2pcs', 30000, 'product7.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product8.jpg" alt="Product 8">
+                <h3>Quality luxury 2pcs</h3>
+                <p>₦30,000</p>
+                <button onclick="addToCart('Quality luxury 2pcs', 30000, 'product8.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product9.jpg" alt="Product 9">
+                <h3>Quality male polo</h3>
+                <p>₦20,000</p>
+                <button onclick="addToCart('Quality male polo', 20000, 'product9.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product10.jpg" alt="Product 10">
+                <h3>Quality male polo</h3>
+                <p>₦12,000</p>
+                <button onclick="addToCart('Quality male polo', 12000, 'product10.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product11.jpg" alt="Product 11">
+                <h3>Quality 2pcs male wear </h3>
+                <p>₦25,000</p>
+                <button onclick="addToCart('Quality 2pcs male wear', 25000, 'product11.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product12.jpg" alt="Product 12">
+                <h3>Quality 2pcs male wear </h3>
+                <p>₦25,000</p>
+                <button onclick="addToCart('Quality 2pcs male wear', 25000, 'product12.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product13.jpg" alt="Product 13">
+                <h3>Quality luxury 2pcs</h3>
+                <p>₦30,000</p>
+                <button onclick="addToCart('Quality luxury 2pcs', 30000, 'product13.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product14.jpg" alt="Product 14">
+                <h3>3 in 1 bonnet included night wear </h3>
+                <p>₦5,000</p>
+                <button onclick="addToCart('3 in 1 bonnet included night wear ', 5000, 'product14.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product15.jpg" alt="Product 15">
+                <h3>3 in 1 bonnet included night wear </h3>
+                <p>₦5,000</p>
+                <button onclick="addToCart('3 in 1 bonnet included night wear ', 5000, 'product15.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product16.jpg" alt="Product 16">
+                <h3>3 in 1 bonnet included night wear </h3>
+                <p>₦5,000</p>
+                <button onclick="addToCart('3 in 1 bonnet included night wear ', 5000, 'product16.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product17.jpg" alt="Product 17">
+                <h3>Quality Gown</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Quality Gown', 8000, 'product17.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product18.jpg" alt="Product 18">
+                <h3>Quality 2pcs</h3>
+                <p>₦7,000</p>
+                <button onclick="addToCart('Quality 2pcs', 7000, 'product18.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product19.jpg" alt="Product 19">
+                <h3>Quality 2pcs</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product19.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product20.jpg" alt="Product 20">
+                <h3>Quality 2pcs</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Quality 2pcs', 8000, 'product20.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product21.jpg" alt="Product 21">
+                <h3>Quality 2pcs</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Quality 2pcs', 8000, 'product21.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product22.jpg" alt="Product 22">
+                <h3>Quality 2pcs</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Quality 2pcs', 8000, 'product22.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product23.jpg" alt="Product 23">
+                <h3>Female 2pcs</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Female 2pcs', 8000, 'product23.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product24.jpg" alt="Product 24">
+                <h3>Female bag</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Female bag', 8000, 'product24.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product25.jpg" alt="Product 25">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product24.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product26.jpg" alt="Product 26">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product26.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product27.jpg" alt="Product 27">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product27.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product28.jpg" alt="Product 28">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product28.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product29.jpg" alt="Product 29">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product29.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product30.jpg" alt="Product 30">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product30.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product31.jpg" alt="Product 31">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product31.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product32.jpg" alt="Product 32">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product32.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product33.jpg" alt="Product 33">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product33.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product34.jpg" alt="Product 34">
+                <h3>Jeans</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Jeans', 8000, 'product34.jpg')">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🛒 FLOATING CART -->
+    <!-- 🛒 FLOATING CART -->
+<div class="floating-cart" onclick="toggleCart()">
+    <h3>🛒 <span id="floating-cart-count" class="cart-count">0</span></h3>
+</div>
+
+<!-- Cart Content (Initially Hidden) -->
+<div id="cart-details" class="cart-content">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <p>Total: ₦<span id="cart-total">0</span></p>
+    <button onclick="checkout()">Proceed to Paystack</button>
+    <button onclick="toggleCart()">Close</button>
+</div>
+
+<script>
+    function toggleCart() {
+        let cart = document.getElementById("cart-details");
+        
+        // Toggle the 'active' class to show or hide the cart
+        if (cart.style.display === "none" || cart.style.display === "") {
+            cart.style.display = "block";
+        } else {
+            cart.style.display = "none";
+        }
+    }
+    
+    function updateCartCount(count) {
+        document.getElementById("floating-cart-count").innerText = count;
+    }
+    
+    // Ensure the cart starts hidden on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("cart-details").style.display = "none";
+    });
+    
+</script>
+
+
+    <script>
+        let cart = [];
+let cartCount = 0;
+
+// ADD TO CART FUNCTION
+function addToCart(name, price, image) {
+    cart.push({ name, price, image });
+    cartCount++;
+    updateCart();
+}
+
+// UPDATE CART UI
+function updateCart() {
+    const cartContainer = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    const cartCountElement = document.querySelector(".cart-count"); 
+    const floatingCartCount = document.getElementById("floating-cart-count"); 
+
+    cartContainer.innerHTML = ""; 
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+
+        cartContainer.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" width="50">
+                <p>${item.name} - ₦${item.price}</p>
+                <button class="remove-btn" onclick="removeFromCart(${index})">X</button>
+            </div>
+        `;
+    });
+    
+    cartTotal.innerText = `₦${total}`;
+
+    // ✅ Fix: Ensure the cart count updates correctly
+    const cartCount = cart.length;
+    
+    // ✅ Update both cart count elements
+    cartCountElement.innerText = cartCount;
+    floatingCartCount.innerText = cartCount;
+
+    // ✅ Ensure floating cart count visibility
+    if (cartCount === 0) {
+        floatingCartCount.style.display = "none";
+    } else {
+        floatingCartCount.style.display = "inline-block";
+    }
+}
+
+    
+
+// REMOVE ITEM FROM CART
+function removeFromCart(index) {
+    cart.splice(index, 1); // ✅ Remove item from cart array
+    updateCart(); // ✅ Refresh cart UI
+}
+
+
+// PAYSTACK CHECKOUT FUNCTION
+function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    let totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+    
+    let handler = PaystackPop.setup({
+        key: 'pk_test_ef224fd0d05b0b79615d15256ed94a2adad6fb8c', // Replace with your actual Paystack public key
+        email: 'customer@example.com', // Replace with dynamic email if available
+        amount: totalAmount * 100, // Convert to kobo
+        currency: 'NGN',
+        callback: function(response) {
+            alert('Payment Successful! Ref: ' + response.reference);
+            cart = [];
+            cartCount = 0;
+            updateCart();
+            window.location.href = "confirmation.html";
+        },
+        onClose: function() {
+            alert('Payment window closed');
+        }
+    });
+    handler.openIframe();
+}
+
+    </script>
+</body>
+</html>

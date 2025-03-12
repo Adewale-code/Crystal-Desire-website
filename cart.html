@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | Clothing Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="js/cart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MyClothing</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cart.html">Cart <span id="cart-count">0</span></a></li>
+        </ul>
+    </nav>
+
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <h2>Total: ₦<span id="cart-total">0</span></h2>
+    <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartItems = document.getElementById("cart-items");
+        let total = 0;
+
+        cart.forEach(product => {
+            cartItems.innerHTML += `
+                <div class="cart-item">
+                    <img src="${product.image}" width="50">
+                    <span>${product.name}</span>
+                    <span>₦${product.price.toLocaleString()}</span>
+                </div>
+            `;
+            total += product.price;
+        });
+
+        document.getElementById("cart-total").innerText = total.toLocaleString();
+    </script>
+</body>
+</html>

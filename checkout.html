@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Clothing Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="paystack.js"></script> <!-- Paystack Script -->
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MyClothing</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cart.html">Cart <span id="cart-count">0</span></a></li>
+        </ul>
+    </nav>
+
+    <h2>Checkout</h2>
+    
+    <div class="checkout-container">
+        <h3>Total Amount: ₦<span id="cart-total">0</span></h3>
+
+        <!-- Payment Form -->
+        <input type="text" id="customer-name" placeholder="Full Name" required>
+        <input type="email" id="customer-email" placeholder="Email Address" required>
+
+        <button id="pay-btn">Pay with Paystack</button>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let total = cart.reduce((sum, item) => sum + item.price, 0);
+        document.getElementById("cart-total").innerText = total.toLocaleString();
+    </script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</body>
+</html>
