@@ -105,6 +105,21 @@
             background: #222;
             transition: background 0.5s ease-in-out;
         }
+        #userEmail {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#userEmail:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
         
    </style>
 
@@ -455,6 +470,9 @@
 <div id="cart-details" class="cart-content">
     <h3>Your Cart</h3>
     <div id="cart-items"></div>
+<div style="margin-top: 15px;">
+    <input type="email" id="userEmail" placeholder="Enter your email" required>
+</div>
     <p>Total: <span id="cart-total">0</span></p>
     <button onclick="checkout()">Proceed to Paystack</button>
     <button onclick="toggleCart()">Close</button>
@@ -545,8 +563,15 @@ function removeFromCart(index) {
 
 // PAYSTACK CHECKOUT FUNCTION
 function checkout() {
+    const UserEmail = document.getElementById('userEmail').value.trim();
+    
     if (cart.length === 0) {
         alert("Your cart is empty!");
+        return;
+    }
+
+    if (userEmail == "") {
+        alert("Please enter your email before proceeding to payment.");
         return;
     }
 
@@ -554,7 +579,7 @@ function checkout() {
     
     let handler = PaystackPop.setup({
         key: 'pk_live_6dac930a86ade291bb1792cb6fcc010283840105', // Replace with your actual Paystack public key
-        email: 'crystaldesire19@gmail.com', // Replace with dynamic email if available
+        email: 'userEmail', // Replace with dynamic email if available
         amount: totalAmount * 100, // Convert to kobo
         currency: 'NGN',
         callback: function(response) {
