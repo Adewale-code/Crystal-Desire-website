@@ -289,38 +289,86 @@
             <div class="product">
                 <img src="product29.jpg" alt="Product 29">
                 <h3>Quality Crop To</h3>
-                <p>₦8,000</p>
+                <p>₦2,500</p>
                 <button onclick="addToCart('Quality Crop To', 8000, 'product29.jpg')">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="product30.jpg" alt="Product 30">
                 <h3>Quality Joggers</h3>
-                <p>₦8,000</p>
-                <button onclick="addToCart('Quality Crop Top', 8000, 'product30.jpg')">Add to Cart</button>
+                <p>₦10,000</p>
+                <button onclick="addToCart('Quality Crop Top', 2500, 'product30.jpg')">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="product31.jpg" alt="Product 31">
-                <h3>Jeans</h3>
+                <h3>3 in 1 Calvin Klein</h3>
                 <p>₦8,000</p>
-                <button onclick="addToCart('Jeans', 8000, 'product31.jpg')">Add to Cart</button>
+                <button onclick="addToCart('3 in 1 Calvin Klein', 2500, 'product31.jpg')">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="product32.jpg" alt="Product 32">
-                <h3>Jeans</h3>
-                <p>₦8,000</p>
-                <button onclick="addToCart('Jeans', 8000, 'product32.jpg')">Add to Cart</button>
+                <h3>3 in 1 Calvin Klein</h3>
+                <p>₦2.500</p>
+                <button onclick="addToCart('3 in 1 Calvin Klein', 2500, 'product32.jpg')">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="product33.jpg" alt="Product 33">
-                <h3>Jeans</h3>
-                <p>₦8,000</p>
-                <button onclick="addToCart('Jeans', 8000, 'product33.jpg')">Add to Cart</button>
+                <h3>Quality Gown</h3>
+                <p>₦7,000</p>
+                <button onclick="addToCart('Quality Gown', 7000, 'product33.jpg')">Add to Cart</button>
             </div>
             <div class="product">
                 <img src="product34.jpg" alt="Product 34">
-                <h3>Jeans</h3>
+                <h3>Quality Gown</h3>
                 <p>₦8,000</p>
-                <button onclick="addToCart('Jeans', 8000, 'product34.jpg')">Add to Cart</button>
+                <button onclick="addToCart('Quality Gown', 8000, 'product34.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product35.jpg" alt="Product 35">
+                <h3>Quality Gown</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Quality Gown', 8000, 'product35.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product36.jpg" alt="Product 36">
+                <h3>Quality Gown</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Quality Gown', 8000, 'product36.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product37.jpg" alt="Product 37">
+                <h3>Quality Shoe(sie 37 to 45)</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Quality Shoe', 21000, 'product37.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product38.jpg" alt="Product 38">
+                <h3>Quality Gown</h3>
+                <p>₦8,000</p>
+                <button onclick="addToCart('Quality Gown', 8000, 'product38.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product38.jpg" alt="Product 38">
+                <h3>Quality Gown</h3>
+                <p>₦9,000</p>
+                <button onclick="addToCart('Quality Gown', 9000, 'product38.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product39.jpg" alt="Product 39">
+                <h3>Quality jean(size 27 to 36)</h3>
+                <p>₦21,000</p>
+                <button onclick="addToCart('Quality jean', 21000, 'product39.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product40.jpg" alt="Product 40">
+                <h3>Quality jean(size 26 to 36)</h3>
+                <p>₦21,000</p>
+                <button onclick="addToCart('Quality Gown', 8000, 'product40.jpg')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product41.jpg" alt="Product 41">
+                <h3>Quality jean(size 26 to 36)</h3>
+                <p>₦19,000</p>
+                <button onclick="addToCart('Quality Gown', 19000, 'product41.jpg')">Add to Cart</button>
             </div>
         </div>
     </div>
@@ -335,7 +383,7 @@
 <div id="cart-details" class="cart-content">
     <h3>Your Cart</h3>
     <div id="cart-items"></div>
-    <p>Total: ₦<span id="cart-total">0</span></p>
+    <p>Total: <span id="cart-total">0</span></p>
     <button onclick="checkout()">Proceed to Paystack</button>
     <button onclick="toggleCart()">Close</button>
 </div>
@@ -433,7 +481,7 @@ function checkout() {
     let totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
     
     let handler = PaystackPop.setup({
-        key: 'pk_test_ef224fd0d05b0b79615d15256ed94a2adad6fb8c', // Replace with your actual Paystack public key
+        key: 'pk_live_6dac930a86ade291bb1792cb6fcc010283840105', // Replace with your actual Paystack public key
         email: 'customer@example.com', // Replace with dynamic email if available
         amount: totalAmount * 100, // Convert to kobo
         currency: 'NGN',
