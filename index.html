@@ -554,7 +554,7 @@ function checkout() {
     
     let handler = PaystackPop.setup({
         key: 'pk_live_6dac930a86ade291bb1792cb6fcc010283840105', // Replace with your actual Paystack public key
-        email: 'customer@example.com', // Replace with dynamic email if available
+        email: 'UserEmail', // Replace with dynamic email if available
         amount: totalAmount * 100, // Convert to kobo
         currency: 'NGN',
         callback: function(response) {
