@@ -563,7 +563,7 @@ function removeFromCart(index) {
 
 // PAYSTACK CHECKOUT FUNCTION
 function checkout() {
-    const UserEmail = document.getElementById('userEmail').value.trim();
+    const userEmail = document.getElementById('userEmail').value.trim();
     
     if (cart.length === 0) {
         alert("Your cart is empty!");
