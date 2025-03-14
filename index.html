@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="logo1">
@@ -120,6 +121,53 @@
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+        /* WhatsApp Group Icon Styling */
+#whatsapp-group-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    text-decoration: none;
+    z-index: 9999;
+    animation: blink 1.5s infinite; /* Blinking animation */
+}
+
+/* Container for Icon and Label */
+.whatsapp-group-container {
+    display: flex;
+    align-items: center;
+    background-color: #25D366;
+    padding: 10px 15px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* WhatsApp Icon */
+.whatsapp-group-container i {
+    font-size: 25px;
+    color: white;
+    margin-right: 8px;
+}
+
+/* See More Label */
+.whatsapp-group-label {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Hover and Focus Effect */
+#whatsapp-group-icon:hover .whatsapp-group-container {
+    transform: scale(1.1);
+    background-color: #1EBE5D; /* Slightly darker green on hover */
+}
+
+/* Blinking Animation */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
         
    </style>
 
@@ -459,6 +507,13 @@
             </div>
         </div>
     </div>
+    <!-- WhatsApp Group Floating Icon -->
+<a href="https://chat.whatsapp.com/YourGroupInviteLink" target="_blank" id="whatsapp-group-icon">
+    <div class="whatsapp-group-container">
+        <i class="fa fa-whatsapp"></i>
+        <span class="whatsapp-group-label">See More</span>
+    </div>
+</a>
 
     <!-- 🛒 FLOATING CART -->
     <!-- 🛒 FLOATING CART -->
