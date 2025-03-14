@@ -136,7 +136,8 @@
     align-items: center;
     background-color: #25D366;
     padding: 10px 15px;
-    border-radius: 30px;
+    border: 3px solid white;
+    animation: border-blink 1.5s infinite;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, background-color 0.3s;
 }
@@ -173,11 +174,18 @@
 @media (max-width: 768px) {
     #whatsapp-group-icon {
         right: 10px;
-        bottom: 80px;
+        bottom: 100px;
     }
     .whatsapp-group-container{
         padding: 5px 10px;
 }
+    /* Blinking Border Animation */
+@keyframes border-blink {
+    0%, 100% { border-color: white; }
+    50% { border-color: #FFD700; } /* Gold shining effect */
+}
+
+
         
    </style>
         <!-- WhatsApp Group Floating Icon -->
