@@ -121,14 +121,13 @@
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
-        /* WhatsApp Group Icon Styling */
+/* WhatsApp Group Icon Styling */
 #whatsapp-group-icon {
     position: fixed;
-    
-    right: 20px;
+    right: 50px;
     text-decoration: none;
     z-index: 9999;
-    animation: blink 1.5s infinite; /* Blinking animation */
+    animation: blink 3s infinite; /* Faster Blinking */
 }
 
 /* Container for Icon and Label */
@@ -138,7 +137,7 @@
     background-color: #25D366;
     padding: 10px 15px;
     border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, background-color 0.3s;
 }
 
@@ -159,14 +158,17 @@
 /* Hover and Focus Effect */
 #whatsapp-group-icon:hover .whatsapp-group-container {
     transform: scale(1.1);
-    background-color: #1EBE5D; /* Slightly darker green on hover */
+    background-color: #1EBE5D;
 }
 
-/* Blinking Animation */
+/* Enhanced Blinking Animation */
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    25% { opacity: 0.2; transform: scale(1.05); }
+    50% { opacity: 1; transform: scale(1); }
+    75% { opacity: 0.2; transform: scale(1.05); }
 }
+
 
         
    </style>
